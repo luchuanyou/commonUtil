@@ -16,42 +16,48 @@ import java.util.Map;
  */
 public class MapTest {
     public static void main(String[] args) {
-        Map<String,Object> map = new HashMap<>();
-        map.put("name","jack");
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("1", "value1");
+        map.put("2", "value2");
+        map.put("3", "value3");
+        map.put("4", "value4");
 
-        list();
-
+        //遍历
+        iteratorMap1(map);
+        System.out.println("==============");
+        iteratorMap2(map);
+        System.out.println("==============");
+        iteratorMap3(map);
     }
-    public static void list(){
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add("c");
 
-        List<String> list2 = new ArrayList<>();
-        list2.add("b");
-        list2.add("c");
-        System.out.println(list);
-        /*for(String str:list){
-            for(String str2:list2){
-                if(str.equals(str2)){
-                    list.remove(str);
-                    break;
-                }
-            }
-        }*/
-        System.out.println("==="+list);
-
-
-        for(int i=0;i<list.size();i++){
-            for(String str2:list2){
-                if(list.get(i).equals(str2)){
-                    list.remove(list.get(i));
-                    i--;
-                    break;
-                }
-            }
+    /**
+     * 遍历map
+     * 第一种：普通使用，二次取值
+     * @param map
+     */
+    public static void iteratorMap1(Map<String,String> map){
+        for (String key : map.keySet()) {
+            System.out.println("key:"+key+",value:"+map.get(key));
         }
-        System.out.println("====="+list);
+    }
+    /**
+     * 遍历map
+     * 第二种：推荐，尤其是容量大时
+     * @param map
+     */
+    public static void iteratorMap2(Map<String,String> map){
+        for (Map.Entry entry : map.entrySet()) {
+            System.out.println("key:"+entry.getKey()+",value:"+entry.getValue());
+        }
+    }
+    /**
+     * 遍历map
+     * 第三种：不能遍历key
+     * @param map
+     */
+    public static void iteratorMap3(Map<String,String> map){
+        for (String value : map.values()) {
+            System.out.println("value:"+value);
+        }
     }
 }
