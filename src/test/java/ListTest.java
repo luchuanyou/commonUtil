@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -35,5 +37,9 @@ public class ListTest {
             }
         }
         System.out.println("====="+list);
+        Pattern nonRegPattern = Pattern.compile("[\\pP\\p{Punct}\\￥\\s*|\t|\r|\n]+");
+        Matcher sdf = nonRegPattern.matcher("fdsad fdsa");
+        System.out.println("sdf:"+sdf);
+        System.out.println(sdf.replaceAll(""));
     }
 }

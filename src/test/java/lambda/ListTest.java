@@ -1,11 +1,13 @@
 package lambda;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  *
@@ -20,13 +22,22 @@ public class ListTest {
         list.add("d");
         list.add("c");
 
-//        foreachTest(list);
+        foreachTest(list);
 
 //        filterTest(list);
         
 //        sortedTest(list);
 
-        mapTest(list);
+//        mapTest(list);
+
+        String[] strs = new String[]{"b","a"};
+//        filter(strs);
+    }
+
+    private static void filter(String[] strs) {
+        System.out.println(strs.length);
+        String a = "";
+        Arrays.asList(strs).stream().filter((str) -> ("a".equals(str))).forEach((str) -> System.out.println(str));
 
     }
 

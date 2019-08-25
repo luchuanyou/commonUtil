@@ -1,4 +1,9 @@
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @项目名称: img
@@ -16,5 +21,30 @@ public class TestDemo {
         BigDecimal b = new BigDecimal("-1");
         int num = b.compareTo(BigDecimal.ZERO);
         System.out.println("num:"+num);
+
+        String str = "";
+        if(!str.equals("")){
+            System.out.println("else1");
+        }else if(str.equals("")){
+            System.out.println("else2");
+        }else {
+            System.out.println("else");
+        }
+
+        List list= new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        System.out.println(list);
+        Iterator it = list.iterator();
+        while (it.hasNext()){
+            it.next();
+            it.remove();
+        }
+        System.out.println("========list:"+list);
+
+        Pattern nonRegPattern = Pattern.compile("[\\pP\\p{Punct}\\￥\\s*|\t|\r|\n]+");
+        Matcher sdf = nonRegPattern.matcher("fdsad fdsa");
+        System.out.println("===========sdf:========="+sdf.toString());
+        System.out.println(sdf.replaceAll(""));
     }
 }

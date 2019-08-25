@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class SortUtil {
     public static void main(String[] args) {
-        Map<String,Object> params = new HashMap<>();
+        Map<String,Object> params = new HashMap<String,Object>();
         params.put("ff","ff");
         params.put("dd","dd");
         params.put("ddf","ddf");

@@ -8,7 +8,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class Md5Util {
     public static void main(String[] args) {
         try {
-            System.out.println(encoderByMd5("123"));
+            System.out.println(encoderByMd5("a.123456"));
         } catch (Exception e) {
             e.printStackTrace();
         }

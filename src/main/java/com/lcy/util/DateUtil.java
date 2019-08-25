@@ -8,6 +8,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -22,6 +23,7 @@ public class DateUtil {
     public static final String FORMAT_YYYY_MM_DD = "yyyy-MM-dd";
     public static final String FORMAT_YYYYMMDD = "yyyyMMdd";
     public static final String FORMAT_YYYY_MM_DD_STR = "yyyy年MM月dd";
+    public static final String FORMAT_YYYY_MM_DD_T = "yyyy-MM-dd'T'HH:mm:ss.SSS";
 
     /**
      * 获取日期
@@ -77,14 +79,52 @@ public class DateUtil {
         return localDate;
     }
 
+    public static Date getBeginOfDay(Date date) {
+        Date reDate = null;
+        if (null != date) {
+            Calendar ca = Calendar.getInstance();
+            ca.setTime(date);
+            ca.set(Calendar.HOUR_OF_DAY, 0);
+            ca.set(Calendar.SECOND, 0);
+            ca.set(Calendar.MINUTE, 0);
+            reDate = ca.getTime();
+        }
+        return reDate;
+    }
+
+    public static Date getEndOfDay(Date date) {
+        Date reDate = null;
+        if (null != date) {
+            Calendar ca = Calendar.getInstance();
+            ca.setTime(date);
+            ca.set(Calendar.HOUR_OF_DAY, 23);
+            ca.set(Calendar.SECOND, 59);
+            ca.set(Calendar.MINUTE, 59);
+            reDate = ca.getTime();
+        }
+        return reDate;
+    }
+
     public static void main(String[] args) {
-        Date date = DateUtil.getDateFromStr("2016-08-03", DateUtil.FORMAT_YYYY_MM_DD);
+        /*Date date = DateUtil.getDateFromStr("2016-08-03", DateUtil.FORMAT_YYYY_MM_DD);
         System.out.println(date);
         System.out.println(DateUtil.getStrFromDate(date, DateUtil.FORMAT_YYYY_MM_DD));
 
         Date date2 = DateUtil.getDateFromStr("2016-08-03", DateUtil.FORMAT_YYYY_MM_DD);
         System.out.println(DateUtil.getStrFromDate(date2, DateUtil.FORMAT_YYYY_MM_DD));
         System.out.println(daysBetween(date, date2));
+
+        System.out.println("====3====");
+        String date3Str = DateUtil.getStrFromDate(new Date(),DateUtil.FORMAT_YYYY_MM_DD_T);
+        Date date3 = DateUtil.getDateFromStr("2018-12-29T12:58:17.136", DateUtil.FORMAT_YYYY_MM_DD_T);
+        System.out.println(date3Str);
+        System.out.println(DateUtil.getStrFromDate(date3, DateUtil.FORMAT_YYYY_MM_DD_HMS));*/
+
+        Date startDate = getBeginOfDay(new Date());
+        System.out.println(DateUtil.getStrFromDate(startDate, DateUtil.FORMAT_YYYY_MM_DD_HMS));
+
+        Date endDate = getEndOfDay(new Date());
+        System.out.println(DateUtil.getStrFromDate(endDate, DateUtil.FORMAT_YYYY_MM_DD_HMS));
     }
 
 }
