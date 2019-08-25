@@ -173,6 +173,13 @@
             <version>2.8.0</version>
         </dependency>
 
+        <!--腾讯OCR-->
+        <dependency>
+            <groupId>com.tencentcloudapi</groupId>
+            <artifactId>tencentcloud-sdk-java</artifactId>
+            <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
+            <version>3.0.67</version>
+        </dependency>
     </dependencies>
 
     <build>
